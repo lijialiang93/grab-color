@@ -1,5 +1,5 @@
 {
-  "name": "ext-color",
+  "name": "grab-color",
   "version": "1.0.0",
   "description": "CLI to get dominant colors out of an image",
   "main": "index.js",
@@ -8,9 +8,10 @@
   },
   "keywords": [
     "color",
-    "ext-color",
+    "grab-color",
     "color-palette",
-    "image-color"
+    "image",
+    "color-scheme"
   ],
   "author": "Jialiang Li",
   "license": "MIT",
@@ -21,6 +22,6 @@
     "sharp": "^0.30.4"
   },
   "bin": {
-    "ext-color": "./bin/index.js"
+    "grab-color": "./bin/index.js"
   }
 }

@@ -77,7 +77,7 @@ const printColor = (colors) => {
 const commandInit = () => {
   const { program } = commander;
   program
-    .name("ext-color")
+    .name("grab-color")
     .description("CLI to get dominant colors out of an image")
     .version("1.0.0")
     .requiredOption("-p --path <path>", "image path")
