@@ -1,0 +1,26 @@
+{
+  "name": "ext-color",
+  "version": "1.0.0",
+  "description": "CLI to get dominant colors out of an image",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "color",
+    "ext-color",
+    "color-palette",
+    "image-color"
+  ],
+  "author": "Jialiang Li",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^9.2.0",
+    "node-kmeans": "^1.1.9",
+    "sharp": "^0.30.4"
+  },
+  "bin": {
+    "ext-color": "./bin/index.js"
+  }
+}
