@@ -5,6 +5,7 @@ const kmeans = require("node-kmeans");
 const commander = require("commander");
 const chalk = require("chalk");
 const clusterize = util.promisify(kmeans.clusterize);
+const { createColorDataImage } = require("../lib/image");
 
 const MAX_COLORS = 10;
 const DEFAULT_COLORS = 3;
@@ -81,6 +82,7 @@ const commandInit = () => {
     .description("CLI to get dominant colors out of an image")
     .version("1.0.0")
     .requiredOption("-p --path <path>", "image path")
+    .option("-o --output <output>", "output jpg image path")
     .option(
       "-c --color <color>",
       `the number of colors to extract from image, range = [1,${MAX_COLORS}]`,
@@ -90,7 +92,9 @@ const commandInit = () => {
           throw new commander.InvalidArgumentError("c is not a number");
         }
         if (parsedValue > MAX_COLORS || parsedValue <= 0) {
-          throw new commander.InvalidArgumentError(`range of c is [1,${MAX_COLORS}]`);
+          throw new commander.InvalidArgumentError(
+            `range of c is [1,${MAX_COLORS}]`
+          );
         }
         return parsedValue;
       },
@@ -105,7 +109,7 @@ const app = async () => {
   let colors = [];
 
   const { program } = commandInit();
-  const { path, color: colorNum } = program.opts();
+  const { path, color: colorNum, output: outputImage } = program.opts();
 
   const vector = await getVectors(path);
   if (vector && vector.length > 0) {
@@ -117,6 +121,10 @@ const app = async () => {
       return b.percentage - a.percentage;
     });
     printColor(colors);
+
+    if (outputImage) {
+      createColorDataImage(colors, outputImage);
+    }
   }
 };
 
