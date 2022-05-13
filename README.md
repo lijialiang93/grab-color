@@ -8,6 +8,11 @@ CLI to get dominant colors out of an image
 npm install -g grab-color
 ```
 
+install dependency on Apple M1
+```
+arch -arm64 brew install pkg-config cairo pango libpng jpeg giflib librsvg
+```
+
 ## Usage
 
 ```

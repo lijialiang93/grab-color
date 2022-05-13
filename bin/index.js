@@ -23,7 +23,7 @@ const getVectors = async (path) => {
   }
 
   const { data } = await sharp(path)
-    .resize(rHeight, rWidth)
+    .resize({ height: rHeight, width: rWidth })
     .raw()
     .toBuffer({ resolveWithObject: true });
 
